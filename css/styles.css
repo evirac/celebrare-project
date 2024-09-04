@@ -1,0 +1,14 @@
+:root {
+  --primary: #87ddb1;
+}
+
+nav.navbar {
+  background-color: var(--primary);
+}
+
+.modal-body img.frame {
+  height: 200px; /* Set a fixed height for all images */
+  border: 2px solid #ccc; /* Add a border around each image */
+  padding: 5px;
+  object-fit: contain; /* Ensures images maintain aspect ratio */
+}
