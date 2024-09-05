@@ -14,20 +14,25 @@
     <title>Image filter</title>
   </head>
   <body>
-    <!-- heading -->
+    <!-- Heading -->
     <nav class="navbar sticky-top shadow">
       <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">Add Image/Icon</span>
       </div>
     </nav>
 
-    <!-- select/upload image -->
+    <!-- Select/upload image -->
     <div class="input-group border border-2 rounded m-3 mt-4 p-3">
-      <label for="my-file" class="input-group-text">upload image</label>
-      <input type="file" class="form-control" id="my-file" />
+      <label for="my-file" class="input-group-text">Upload Image</label>
+      <input type="file" class="form-control" id="my-file" accept="image/*" />
     </div>
 
-    <!-- modal -->
+    <!-- Display the final image -->
+    <div class="text-center mt-4">
+      <img id="finalImage" alt="Final Image" />
+    </div>
+
+    <!-- Modal -->
     <div
       class="modal fade"
       id="imageModal"
@@ -41,12 +46,6 @@
             <h5 class="modal-title" id="imageModalLabel">
               Preview Image with Frames
             </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
           </div>
           <div class="modal-body text-center">
             <img
@@ -57,10 +56,18 @@
             <div class="d-flex justify-content-around">
               <div>
                 <img
+                  id="original"
+                  src="asset/Original.png"
+                  class="img-fluid mb-3 frame"
+                  alt="original"
+                  data-filter="none"
+                />
+                <img
                   id="frame1"
                   src="asset/user_image_frame_1.png"
                   class="img-fluid mb-3 frame"
                   alt="Frame 1"
+                  data-filter="heart"
                 />
               </div>
               <div>
@@ -69,6 +76,7 @@
                   src="asset/user_image_frame_2.png"
                   class="img-fluid mb-3 frame"
                   alt="Frame 2"
+                  data-filter="rounded-square"
                 />
               </div>
               <div>
@@ -77,6 +85,7 @@
                   src="asset/user_image_frame_3.png"
                   class="img-fluid mb-3 frame"
                   alt="Frame 3"
+                  data-filter="circle"
                 />
               </div>
               <div>
@@ -85,6 +94,7 @@
                   src="asset/user_image_frame_4.png"
                   class="img-fluid mb-3 frame"
                   alt="Frame 4"
+                  data-filter="rounded-rectangle"
                 />
               </div>
             </div>
@@ -92,16 +102,16 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn"
               data-bs-dismiss="modal"
+              id="useImageBtn"
             >
-              Close
+              Use this image
             </button>
           </div>
         </div>
       </div>
     </div>
-
     <!-- scripts -->
     <script src="js/jquery-3.7.1.min.js"></script>
     <script
